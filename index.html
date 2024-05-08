@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Children & Props </title>
+</head>
+<style>
+    .box{
+        display:flex;
+      
+        gap: 10%;
+        border: 2px solid black;
+        padding: 20px;
+        width: 80%;
+        margin: auto;
+
+    }
+    .box > img{
+        width: 40%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+       
+    }
+</style>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your ItemList component code will go here
+
+
+    function Gallery({ children }){
+        return(
+            <div className="box">
+                {children}
+                </div>
+        )
+    }
+
+
+    function Image({src}){
+
+        return(
+            <>
+         <img src={src} alt=""/>
+           
+            </>
+        )
+    }
+
+
+    function App(){
+
+        return(
+            <>
+            <Gallery>
+                <Image src="https://rukminim2.flixcart.com/image/612/612/kwcfngw0/painting/h/e/i/30-1-set-of-5-modern-art-peacock-bird-nature-scenery-3d-framed-original-imag9fzqeqhuugbz.jpeg?q=70" />
+
+                <Image src="https://rukminim2.flixcart.com/image/612/612/jxf05u80/painting/s/4/t/cf06-190-craftsfest-original-imafhveprftarxzg.jpeg?q=70" />
+                </Gallery>
+            </>
+        )
+    }
+
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"))
+    rootElement.render(<App/>)
+  </script>
+</body>
+</html>
